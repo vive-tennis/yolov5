@@ -136,6 +136,22 @@ python train.py --data coco.yaml --cfg yolov5n.yaml --weights '' --batch-size 12
 
 <img width="800" src="https://user-images.githubusercontent.com/26833433/90222759-949d8800-ddc1-11ea-9fa1-1c97eed2b963.png">
 
+* Note: How to prepare the dataset structure:
+   
+```yaml
+path: /abs_path/to/here       # dataset root dir
+train: train.txt              # train images (relative to 'path') 128 images
+   # /abs_path/f_dataset/images/subdir1.../img1.jpg => label to be at /abs_path/f_dataset/labels/subdir1.../img1.txt
+   # /absolute/f_dataset/images/subdir2.../img2.jpg => label to be at /abs_path/f_dataset/labels/subdir2.../img2.txt
+val: val.txt                  # val images (relative to 'path') 128 images
+
+# Classes
+names:
+  0: background
+  1: xxx
+  2: yyy
+```
+
 </details>
 
 <details open>
