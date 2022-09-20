@@ -81,7 +81,7 @@ def run(
         dnn=False,  # use OpenCV DNN for ONNX inference
 ):
 
-    classifier_model = DDRNETSegmentation(model_path="./DDRNet_DDRNet-23slim_TennisLines.pth")
+    segementation_model = DDRNETSegmentation(model_path="./DDRNet_DDRNet-23slim_TennisLines.pth")
 
     source = str(source)
     save_img = not nosave and not source.endswith('.txt')  # save inference images
@@ -126,7 +126,7 @@ def run(
         t2 = time_sync()
         dt[0] += t2 - t1
 
-        _, inference_time = classifier_model.exec(im)
+        _, inference_time = segementation_model.exec(im)
 
         # Inference
         visualize = increment_path(save_dir / Path(path).stem, mkdir=True) if visualize else False
